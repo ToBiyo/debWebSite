@@ -1,0 +1,43 @@
+---
+import logo from "../assets/img/logo.svg";
+import Menu from "./Menu.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<nav
+  class="w-[90%] mx-auto flex flex-row justify-between items-center px-6 lg:px-0 lg:flex-col lg:juestify-center lg:items-center lg:w-full lg:mx-auto"
+>
+  <button class="flex flex-col gap-3 lg:hidden" id="hamburger_button">
+    <Icon name={"mdi:hamburger-menu"} class="text-5xl" />
+  </button>
+  <img src={logo.src} alt="Logo" class="w-[150px] lg:w-[200px]" />
+
+  <div
+    class="fixed w-full h-screen top-0 left-0 bg-black/40 z-10 hidden opacity-0 duration-300 lg:flex lg:relative lg:opacity-100 lg:h-auto"
+    id="overlay"
+  >
+    <Menu />
+  </div>
+
+  <script is:inline>
+    const button = document.getElementById("hamburger_button");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+    const closeButton = document.getElementById("close_button");
+
+    button.addEventListener("click", () => {
+      overlay?.classList.remove("hidden");
+      overlay?.classList.remove("opacity-0");
+      setTimeout(() => {
+        menu?.classList.add("toggle_menu");
+      }, 10);
+    });
+
+    closeButton.addEventListener("click", () => {
+      menu?.classList.remove("toggle_menu");
+      setTimeout(() => {
+        overlay?.classList.add("hidden");
+      }, 150);
+    });
+  </script>
+</nav>

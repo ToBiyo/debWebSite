@@ -1,0 +1,25 @@
+---
+interface ComponentProps {
+  title: string;
+  textBlock: string;
+  buttonMessage: string;
+}
+
+const { title, textBlock, buttonMessage } = Astro.props as ComponentProps;
+---
+
+<div class="px-4 flex flex-col gap-8 lg:px-0">
+  <h2
+    class="text-3xl lg:text-6xl font-main max-w-auto text-center xl:text-left font-bold"
+  >
+    {title}
+  </h2>
+  <p class="text-center text-base lg:text-lg xl:text-left">
+    {textBlock}
+  </p>
+  <button
+    class="flex-none mx-auto px-2 py-4 text-lg text-white bg-gray-800 max-w-44 cursor-pointer xl:mx-0"
+  >
+    {buttonMessage}
+  </button>
+</div>

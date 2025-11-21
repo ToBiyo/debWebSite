@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+import MenuLink from "./MenuLink.astro";
+const pathName = Astro.props;
+const pathString = new String(pathName.pathName);
+const isActive = pathString.includes("/servizi/") ? "lg:border-white" : "";
+---
+
+<div class="flex flex-col relative" id="hover_trigger">
+  <div class="flex w-full items-center lg:border-none">
+    <a
+      class=`flex  items-center gap-2 w-full text-base font-semibold border-b border-gray-300   lg:p-3  lg:w-auto lg:border-b-3 lg:border-gray-800 lg:text-white lg:hover:border-white ${isActive} transition-all duration-200 cursor-pointer lg:transition-none`
+    >
+      Servizi <Icon
+        name={"mdi:triangle-down"}
+        class="text-[10px] mt-1 hidden md:block"
+      />
+    </a>
+    <!-- <MenuLink href="" label="Servizi" pathName={pathName} /> -->
+    <button class="text-md font-semibold lg:hidden" id="accordion_button"
+      >+</button
+    >
+  </div>
+  <div
+    class="flex flex-col ml-2 max-h-0 overflow-hidden transition-all duration-300 lg:absolute lg:top-14 lg:-left-5 lg:max-h-0 lg:w-fit lg:bg-gray-800"
+    id="accordion"
+  >
+    <a
+      href="/servizi/pmu"
+      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+      >PMU</a
+    >
+    <a
+      href="/servizi/trattamenti_viso"
+      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+      >Trattamenti Viso</a
+    >
+    <a
+      href="/servizi/trattamenti_corpo"
+      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+      >Trattamenti Corpo</a
+    >
+    <a
+      href="/servizi/laminazione"
+      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+      >Laminazione</a
+    >
+    <a
+      href="/servizi/macchinari"
+      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+      >Macchinari</a
+    >
+  </div>
+</div>
+
+<script>
+  const accordionTrigger = document.getElementById("accordion_button");
+  const accordion = document.getElementById("accordion");
+  const hoverTrigger = document.getElementById("hover_trigger");
+
+  accordionTrigger?.addEventListener("click", () => {
+    if (accordion?.classList.contains("max-h-0")) {
+      accordion.classList.remove("max-h-0");
+      accordion.classList.add("max-h-96");
+      accordionTrigger.innerText = "-";
+    } else {
+      accordion?.classList.remove("max-h-96");
+      accordion?.classList.add("max-h-0");
+      accordionTrigger.innerText = "+";
+    }
+  });
+
+  hoverTrigger?.addEventListener("mouseover", () => {
+    accordion?.classList.remove("lg:max-h-0");
+    accordion?.classList.add("lg:max-h-96");
+  });
+
+  hoverTrigger?.addEventListener("mouseleave", () => {
+    accordion?.classList.remove("lg:max-h-96");
+    accordion?.classList.add("lg:max-h-0");
+  });
+</script>

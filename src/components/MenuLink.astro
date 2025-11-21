@@ -1,0 +1,11 @@
+---
+const { href, label, currentPath } = Astro.props;
+
+const isActive = currentPath === href ? "lg:border-white" : "";
+---
+
+<a
+  href={href}
+  class=`w-full text-base font-semibold border-b border-gray-300   lg:p-3  lg:w-auto lg:border-b-3 lg:border-gray-800 lg:text-white lg:hover:border-white ${isActive} transition-all duration-200 cursor-pointer lg:transition-none`
+  >{label}</a
+>

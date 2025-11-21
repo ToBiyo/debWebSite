@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf1ea;
+  --color-accent: #684f1d;
+  --font-main: "Literate", serif;
+}
+
+.toggle_menu {
+  opacity: 1;
+  left: 0;
+}

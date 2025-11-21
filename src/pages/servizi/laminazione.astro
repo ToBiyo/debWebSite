@@ -1,0 +1,53 @@
+---
+import ServiceDescriptions from "../../components/ServiceDescriptions.astro";
+import Layout from "../../layouts/Layout.astro";
+import benefits from "../../assets/img/benefits.jpg";
+
+const treatments = [
+  {
+    name: "Pulizia viso profonda",
+    description:
+      "Un trattamento completo per detergere e purificare la pelle in profondità.",
+    sessions: "3–5 sedute",
+    results: [
+      "Pelle visibilmente più luminosa e fresca.",
+      "Pelle visibilmente più luminosa e fresca.",
+      "Pelle visibilmente più luminosa e fresca.",
+    ],
+    images: [benefits, benefits, benefits],
+  },
+  {
+    name: "Trattamento anti-age",
+    description:
+      "Stimola la rigenerazione cellulare per una pelle più tonica e compatta.",
+    sessions: "4–6 sedute",
+    results: [
+      "Riduzione delle linee sottili e maggiore elasticità.",
+      "Riduzione delle linee sottili e maggiore elasticità.",
+      "Riduzione delle linee sottili e maggiore elasticità.",
+    ],
+    images: [benefits, benefits, benefits],
+  },
+];
+---
+
+<Layout>
+  <section class="py-10 lg:py-20 bg-[#C4E9D7] flex justify-center items-center">
+    <div class="max-w-[1000px] flex flex-col gap-5">
+      <h1 class="text-3xl lg:text-6xl font-main text-center font-bold">
+        Laminazione
+      </h1>
+      <p class="text-center mt-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, sapiente
+        neque officiis voluptates quod ipsa voluptatum accusantium.
+      </p>
+    </div>
+  </section>
+  <section class="max-w-[1000px] mx-auto py-30">
+    {
+      treatments.map((t) => {
+        return <ServiceDescriptions {...t} />;
+      })
+    }
+  </section>
+</Layout>

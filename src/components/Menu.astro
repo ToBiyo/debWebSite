@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+import MenuLink from "./MenuLink.astro";
+import MenuAccordion from "./MenuAccordion.astro";
+const path = Astro.url.pathname;
+---
+
+<div
+  class="relative w-[90%] h-full -left-full top-0 transition-all duration-300 p-6 bg-white lg:bg-gray-800 flex flex-col gap-10 text-2xl lg:p-2 lg:left-0 lg:flex-row lg:h-auto lg:w-full lg:items-center lg:justify-center lg:m-0 lg:text-gray-900"
+  id="menu"
+>
+  <div class="flex justify-end lg:hidden">
+    <inuput
+      class="flex justify-center items-center text-white text-xl w-10 h-10 bg-gray-800"
+      id="close_button"
+    >
+      <Icon name={"mdi:close"} /></inuput
+    >
+  </div>
+  <MenuLink href="/" label="Home" currentPath={path} />
+  <MenuLink href="/chi_sono" label="Chi sono" currentPath={path} />
+  <MenuAccordion pathName={path} />
+
+  <MenuLink href="/contatti" label="Contatti" currentPath={path} />
+</div>

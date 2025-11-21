@@ -1,0 +1,39 @@
+---
+interface ComponentProps {
+  title: string;
+  description: string;
+  vantaggi: string[];
+}
+
+const { title, description, vantaggi } = Astro.props as ComponentProps;
+---
+
+<article
+  class="flex flex-col gap-8 py-14 px-6 from-white to-gray-50 mx-auto max-w-[800px] border-b border-gray-200"
+>
+  <h2 class="text-5xl font-semibold text-center text-gray-800 tracking-tight">
+    {title}
+  </h2>
+
+  <p class="text-lg text-gray-700 leading-relaxed">
+    {description}
+  </p>
+
+  <div>
+    <label
+      for="vantaggi"
+      class="block text-2xl font-semibold text-gray-800 mb-4"
+    >
+      Vantaggi:
+    </label>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+      {
+        vantaggi.map((plus) => (
+          <li class="transition-all duration-200 hover:text-blue-600 hover:translate-x-1">
+            {plus}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

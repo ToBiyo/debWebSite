@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+const instagramLink = import.meta.env.PUBLIC_INSTAGRAM;
+const facebookLink = import.meta.env.PUBLIC_FACEBOOK;
+const phoneNumber = import.meta.env.PUBLIC_PHONE;
+const address = import.meta.env.PUBLIC_ADDRESS;
+
+const links = [
+  {
+    path: "/",
+    name: "Home",
+  },
+  {
+    path: "/chi_sono",
+    name: "Chi Sono",
+  },
+  {
+    path: "/servizi/pmu",
+    name: "Pmu",
+  },
+  {
+    path: "/servizi/trattamenti_viso",
+    name: "Trattamenti Viso",
+  },
+  {
+    path: "/servizi/trattamenti_corpo",
+    name: "Trattamenti Corpo",
+  },
+  {
+    path: "/servizi/laminazione",
+    name: "Laminazione",
+  },
+  {
+    path: "/servizi/macchinari",
+    name: "Macchinari",
+  },
+  {
+    path: "/contatti",
+    name: "Contatti",
+  },
+];
+---
+
+<footer
+  class="w-full bg-gray-800 flex flex-col items-center justify-center py-20"
+>
+  <div class="max-w-[1600px] grid grid-cols-1 w-full md:grid-cols-3">
+    <div
+      class="flex flex-col items-center gap-6 p-4 md:pl-8 mt-8 md:mt-0 w-full"
+    >
+      <h3
+        class="text-2xl lg:text-4xl font-medium mb-2 flex items-center gap-3 font-main text-white"
+      >
+        Link Utili
+      </h3>
+      <ul class="text-base lg:text-lg text-white flex flex-col items-center">
+        {
+          links.map((link) => (
+            <li class="flex items-center gap-3 p-2">
+              <a href={link.path}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div
+      class="w-auto flex md:w-full flex-col items-center py-8 mx-4 gap-6 md:pl-8 mt-8 md:mt-0 border-y md:border-y-0 lg:border-x border-gray-100 border-dotted md-w-auto"
+    >
+      <h3
+        class="text-2xl lg:text-4xl font-medium mb-2 text-start gap-3 font-main text-white"
+      >
+        <!-- Icona telefono -->
+        Contatti
+      </h3>
+      <ul
+        class="space-y-4 text-base lg:text-lg text-white flex flex-col justify-center items-center"
+      >
+        <li class="flex gap-3 p-2">
+          <!-- Icona telefono -->
+          <Icon name="mdi:phone" class={"text-pink-500 text-2xl"} />
+          <span>{phoneNumber}</span>
+        </li>
+        <li class="flex gap-3 p-2">
+          <!-- Icona WhatsApp -->
+          <Icon name="mdi:whatsapp" class={"text-green-500 text-2xl"} />
+          <span>{phoneNumber} (WhatsApp)</span>
+        </li>
+        <li class="flex gap-3 p-2">
+          <!-- Icona posizione -->
+          <Icon name="mdi:map-marker" class={"text-red-500 text-2xl"} />
+          <span>Via Pietro Delitala, 11, Cagliari</span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center gap-6 p-4 md:pl-8 mt-8 md:mt-0">
+      <h3
+        class="text-2xl lg:text-4xl font-medium mb-2 flex items-center gap-3 font-main text-white"
+      >
+        <!-- Icona telefono -->
+        Social
+      </h3>
+      <ul class="space-y-4 text-base lg:text-lg text-white">
+        <li class="flex items-center gap-3 p-2">
+          <!-- Icona telefono -->
+          <a href={instagramLink}>
+            <Icon name="mdi:instagram" class={"text-pink-500 text-5xl"} />
+          </a>
+        </li>
+        <li class="flex items-center gap-3 p-2">
+          <a href={facebookLink}>
+            <Icon name="mdi:facebook" class={"text-blue-500 text-5xl"} />
+          </a>
+          <!-- Icona WhatsApp -->
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-[1600px] mt-20 border-dotted">
+    <h3 class="py-5 my-5 border-t text-white lg:px-10 text-center px-2">
+      Deb Centro Estetico di Debora Desogus - - PARTITA IVA N. - Privacy Policy
+      - Cookie Policy
+    </h3>
+  </div>
+</footer>
