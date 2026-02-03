@@ -1,30 +1,24 @@
 ---
 interface Props {
-  description?: boolean;
+  description?: string;
   title?: string;
   background?: string;
 }
 import { Icon } from "astro-icon/components";
+import MainHeading from "../typography/MainHeading.astro";
 const phoneNumber = import.meta.env.PUBLIC_PHONE;
 const address = import.meta.env.PUBLIC_ADDRESS;
-const { description = true, title, background } = Astro.props;
+const { description, title, background } = Astro.props;
 ---
 
 <section
   class={` ${background ? background : "bg-cream"} mx-auto py-30 flex flex-col gap-18 px-8 items-center`}
 >
   <div class="max-w-[800px] flex flex-col gap-5 text-center">
-    <h2 class="text-3xl xl:text-6xl font-main">
-      {title ? title : "Come Contattarmi"}
-    </h2>
+    <MainHeading tag="h2">{title}</MainHeading>
     {
       description && (
-        <p class="text-lg lg:text-xl text-black">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
-          pariatur quisquam porro consequatur molestias qui mollitia in odit
-          nesciunt fugiat. Eius, laudantium voluptas rem cum corrupti ab facere
-          illum totam?
-        </p>
+        <p class="text-base lg:text-lg text-black">{description}</p>
       )
     }
   </div>

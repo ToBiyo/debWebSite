@@ -1,14 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const { review, user, rating } = Astro.props;
 ---
 
 <article
-  class="bg-gray-50 shadow-xl border border-stone-100 p-6 h-full flex flex-col rounded-2xl"
+  class="bg-gray-50 shadow-xl border border-stone-100 p-6 gap-5 h-full flex flex-col rounded-2xl"
 >
   {/* Rating */}
   <div class="flex items-center gap-1 mb-4 justify-center">
     {
-      [...Array(5)].map((_, i) => (
+      [...Array(rating)].map((_, i) => (
         <Icon name={"mdi:star"} class={"text-xl text-yellow-300"} />
       ))
     }
@@ -18,12 +20,7 @@ import { Icon } from "astro-icon/components";
   <p
     class="text-black font-quicksand text-base lg:text:lg leading-relaxed mb-6"
   >
-    Nello studio si respira sin da subito un’aria di professionalità e
-    dedizione. La passione con cui Debora si prende cura di ogni singolo cliente
-    si percepisce dai trattamenti e dai macchinari all’avanguardia presenti. Ho
-    voluto provare il biolifting viso con manovre intraorali e la mia curiosità
-    è stata ben ripagata. Effettuata anche la pressoteria, super consigliata.
-    Insomma, se volete regalarvi una coccola questo è il posto giusto.
+    {review}
   </p>
 
   {/* Bottom Info */}
@@ -31,7 +28,7 @@ import { Icon } from "astro-icon/components";
     <div class="flex items-center justify-center">
       <div>
         <h4 class="font-main font-bold text-black text-xl lg:text-2xl">
-          Aurora Coletta
+          {user}
         </h4>
       </div>
     </div>

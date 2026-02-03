@@ -1,10 +1,10 @@
 ---
-import Hero from "../components/Hero.astro";
-import BenefitsSection from "../components/BenefitsSection.astro";
+import Hero from "../components/sections/home/HeroSection.astro";
+import BenefitsSection from "../components/sections/home/BenefitsSection.astro";
 import Layout from "../layouts/Layout.astro";
-import ServicesCardSection from "../components/ServicesCardSection.astro";
-import ReviewSection from "../components/ReviewSection.astro";
-import ContactsSection from "../components/ContactsSection.astro";
+import ServicesCardSection from "../components/sections/home/ServicesCardSection.astro";
+import ReviewSection from "../components/sections/home/ReviewSection.astro";
+import ContactsSection from "../components/sections/ContactsSection.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -14,5 +14,8 @@ import ContactsSection from "../components/ContactsSection.astro";
   <BenefitsSection />
   <ServicesCardSection />
   <ReviewSection />
-  <ContactsSection />
+  <ContactsSection
+    title="Contatti e Orari"
+    description="In deb Studio Estetico, la tua esperienza è la nostra priorità. Per garantirti la massima attenzione e disponibilità, ti invitiamo a prenotare il tuo appuntamento in anticipo. Per una comunicazione più rapida e per fissare subito la tua consulenza o il tuo trattamento, WhatsApp è il nostro canale preferito. Rispondiamo prontamente per gestire al meglio le tue richieste."
+  />
 </Layout>

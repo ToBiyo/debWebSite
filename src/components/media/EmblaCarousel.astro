@@ -1,0 +1,93 @@
+---
+const {images, id} = Astro.props;
+import { Icon } from "astro-icon/components";
+interface Props {
+  images: Image[];
+  id: string;
+}
+
+interface Image {
+  src: string;
+}
+
+---
+
+
+
+<div class="w-auto flex flex-col gap-5 items-center justify-center mt-[50px] lg:mt-0 "    id={id} data-carousel-id={id} data-initialized>
+    <div class="embla flex flex-row justify-center" >
+        <button class="embla__prev"><Icon name="mdi:chevron-left" class={"text-xl lg:text-4xl cursor-pointer"}/></button>
+    <div class="embla__viewport w-auto sm:w-[400px] md:w-[600px] lg:w-[500px] xl:max-w-[900px] bg-gray-200">
+        <div class="embla__container">
+            {images.map((image) : Image => (
+                <div class="embla__slide"><img src={image.src} ></img></div>
+            ))}
+        </div>
+    </div>
+        <button class="embla__next"><Icon name="mdi:chevron-right" class={"text-xl lg:text-4xl cursor-pointer"}/></button>
+    </div>
+
+    <div class="embla__dots">
+    {images.map((_, index) => (
+      <button 
+        class="embla__dot" 
+        type="button" 
+        aria-label={`Vai alla slide ${index + 1}`}
+      ></button>
+    ))}
+  </div>
+</div>
+
+
+
+
+<script>
+
+import EmblaCarousel from 'embla-carousel'
+
+const initSliders = () => {
+    // Cerchiamo tutti i wrapper che hanno il nostro attributo
+    const root = document.querySelectorAll('[data-carousel-id]');
+
+    root.forEach((wrapper) => {
+      // Evitiamo di inizializzare due volte se lo script gira di nuovo
+      if (wrapper.getAttribute('data-state') === 'active') return;
+
+      const viewportNode = wrapper.querySelector('.embla__viewport') as HTMLElement;
+      const dots = Array.from(wrapper.querySelectorAll('.embla__dot')) as HTMLButtonElement[];
+      const prevBtn = wrapper.querySelector('.embla__prev');
+      const nextBtn = wrapper.querySelector('.embla__next');
+
+      if (viewportNode) {
+        const emblaApi = EmblaCarousel(viewportNode, { loop: true });
+
+        const toggleActiveDot = () => {
+          const selected = emblaApi.selectedScrollSnap();
+          dots.forEach((dot, i) => dot.classList.toggle('is-active', i === selected));
+        };
+
+        // Click eventi
+        dots.forEach((dot, i) => dot.addEventListener('click', () => emblaApi.scrollTo(i)));
+        prevBtn?.addEventListener('click', () => emblaApi.scrollPrev());
+        nextBtn?.addEventListener('click', () => emblaApi.scrollNext());
+
+        emblaApi.on('select', toggleActiveDot);
+        emblaApi.on('init', toggleActiveDot);
+        
+        toggleActiveDot();
+        // Segnamo come attivo
+        wrapper.setAttribute('data-state', 'active');
+      }
+    });
+  };
+
+  // Esegui all'avvio
+  initSliders();
+
+  // Se usi View Transitions, serve anche questo:
+  document.addEventListener('astro:after-swap', initSliders);
+</script>
+
+
+
+</script>

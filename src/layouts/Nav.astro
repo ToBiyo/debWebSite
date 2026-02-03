@@ -1,6 +1,6 @@
 ---
 import logo from "../assets/img/logo.svg";
-import Menu from "./Menu.astro";
+import Menu from "../components/ui/Menu.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -10,7 +10,9 @@ import { Icon } from "astro-icon/components";
   <button class="flex flex-col gap-3 lg:hidden" id="hamburger_button">
     <Icon name={"mdi:hamburger-menu"} class="text-5xl" />
   </button>
-  <img src={logo.src} alt="Logo" class="w-[150px] lg:w-[200px]" />
+  <a href="/">
+    <img src={logo.src} alt="Logo" class="w-[150px] lg:w-[200px]" /></a
+  >
 
   <div
     class="fixed w-full h-screen top-0 left-0 bg-black/40 z-10 hidden opacity-0 duration-300 lg:flex lg:relative lg:opacity-100 lg:h-auto"

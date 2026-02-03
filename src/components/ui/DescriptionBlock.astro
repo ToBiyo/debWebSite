@@ -1,0 +1,23 @@
+---
+interface ComponentProps {
+  title: string;
+  textBlock: string;
+  buttonMessage: string;
+}
+import MainHeading from "../typography/MainHeading.astro";
+
+const { title, textBlock, buttonMessage } = Astro.props as ComponentProps;
+---
+
+<div class="px-4 flex flex-col gap-8 xl:px-0">
+  <MainHeading tag="h2" center={false}>{title}</MainHeading>
+
+  <p class="text-center text-base lg:text-md xl:text-lg lg:text-left">
+    {textBlock}
+  </p>
+  <button
+    class="flex-none mx-auto lg:mx-0 px-2 py-4 lg:text-md xl:text-lg text-white bg-gray-800 max-w-44 cursor-pointer xl:mx-0"
+  >
+    {buttonMessage}
+  </button>
+</div>

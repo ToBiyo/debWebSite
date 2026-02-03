@@ -1,0 +1,41 @@
+---
+const { data } = Astro.props;
+const { name, description, sessions, results, images = [] } = data;
+import EmblaCarousel from "../../media/EmblaCarousel.astro";
+---
+
+<article
+  class="flex flex-col lg:flex-row border-b border-gray-200 space-y-4 py-10 px-4"
+>
+  <div class="lg:w-1/2 w-full gap-5 flex flex-col justify-center">
+    <h2 class="text-2xl lg:text-4xl font-main font-semibold text-gray-800">
+      {name}
+    </h2>
+    <p class="text-gray-600 text-base">{description}</p>
+
+    <div class="flex flex-col flex-wrap gap-6 text-sm text-gray-700">
+      {
+        sessions && (
+          <p class="text-base lg:text-lg">
+            <span class="font-medium text-lg">Sedute consigliate:</span>{" "}
+            {sessions}
+          </p>
+        )
+      }
+      {
+        results && (
+          <div class="flex flex-col gap-5">
+            <span class="font-medium text-lg">Risultati attesi:</span>
+            <ul class="list-disc px-4 flex flex-col gap-2">
+              {results.map((result: string) => (
+                <li class="text-base lg:text-lg">{result}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <EmblaCarousel images={images} id={name + "_carousel"} />
+</article>

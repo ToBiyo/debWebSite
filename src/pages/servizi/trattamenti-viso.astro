@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import ServiceDescriptions from "../../components/ServiceDescriptions.astro";
+import ServiceSection from "../../components/sections/services/ServiceSection.astro";
+import MainHeading from "../../components/typography/MainHeading.astro";
 import benefits from "../../assets/img/benefits.jpg";
 
 const treatments = [
@@ -33,20 +34,18 @@ const treatments = [
 
 <Layout>
   <section class="py-20 bg-[#E4BFA1] flex justify-center items-center mb-10">
-    <div class="max-w-[1000px] flex flex-col gap-5 px-4">
-      <h1 class="text-3xl lg:text-6xl font-main font-bold text-center">
-        Trattamenti Viso
-      </h1>
-      <p class="text-center text-base lg:text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, sapiente
-        neque officiis voluptates quod ipsa voluptatum accusantium.
-      </p>
+    <div class="max-w-[1000px] flex flex-col gap-5 px-2 lg:px-0">
+      <MainHeading border={true}>Trattamenti Viso</MainHeading>
+      <h3 class="text-center text-gray-800 text-lg lg:text-2xl font-main">
+        Percorsi viso su misura per valorizzare la naturale bellezza della tua
+        pelle.
+      </h3>
     </div>
   </section>
   <section class="max-w-[1200px] mx-auto">
     {
       treatments.map((t) => {
-        return <ServiceDescriptions {...t} />;
+        return <ServiceSection data={t} />;
       })
     }
   </section>

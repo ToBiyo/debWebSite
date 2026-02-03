@@ -1,0 +1,33 @@
+---
+import MainHeading from "../../typography/MainHeading.astro";
+import hero from "../../../assets/img/hero.jpg";
+---
+
+<section class="bg-cream">
+  <div
+    class="flex flex-col lg:flex-row lg:justify-between max-w-[1400px] mx-auto"
+  >
+    <div
+      class="flex bg-cream flex-col gap-6 py-10 px-8 lg:order-first order-last justify-center lg:py-0 lg:px-8"
+    >
+      <MainHeading tag="h1" center={false}>Deb Studio Estetico</MainHeading>
+
+      <p
+        class="text-center text-base lg:text-lg font-sans leading-7 max-w-3xl text-gray-700 lg:text-left"
+      >
+        Nel cuore di Cagliari, deb Studio Estetico è il luogo dove la massima
+        professionalità incontra la cura del dettaglio. Sotto la guida della
+        titolare, offriamo trattamenti all'avanguardia — dalla Radiofrequenza
+        alla Pressoterapia — personalizzati per te. Non solo promettiamo
+        risultati, li garantiamo, in un ambiente dove ti sentirai sempre
+        accolta, compresa e valorizzata.
+      </p>
+      <a
+        href="/chi_siamo"
+        class="border-2 p-3 mx-auto max-w-[150px] bg-gray-800 text-white text-center duration-300 lg:mx-0 text-base lg:text-lg"
+        >SCOPRI DI PIÙ</a
+      >
+    </div>
+    <img src={hero.src} alt="Hero Image" class="md:w-full lg:w-1/3" />
+  </div>
+</section>
