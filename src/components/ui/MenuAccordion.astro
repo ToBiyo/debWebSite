@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import MenuLink from "./MenuLink.astro";
+import { AccordionLinksData } from "../../data/linksData";
 const pathName = Astro.props;
 const pathString = new String(pathName.pathName);
 const isActive = pathString.includes("/servizi/") ? "lg:border-white" : "";
@@ -25,31 +25,16 @@ const isActive = pathString.includes("/servizi/") ? "lg:border-white" : "";
     class="flex flex-col ml-2 max-h-0 overflow-hidden transition-all duration-300 lg:absolute lg:top-14 lg:-left-5 lg:max-h-0 lg:w-fit lg:bg-gray-800"
     id="accordion"
   >
-    <a
-      href="/servizi/pmu"
-      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
-      >PMU</a
-    >
-    <a
-      href="/servizi/trattamenti-viso"
-      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
-      >Trattamenti Viso</a
-    >
-    <a
-      href="/servizi/trattamenti-corpo"
-      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
-      >Trattamenti Corpo</a
-    >
-    <a
-      href="/servizi/laminazione"
-      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
-      >Laminazione</a
-    >
-    <a
-      href="/servizi/macchinari"
-      class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
-      >Macchinari</a
-    >
+    {
+      AccordionLinksData.map((link) => (
+        <a
+          href={link.path}
+          class="text-base font-semibold p-2 block w-full border-b border-gray-300 lg:text-white"
+        >
+          {link.name}
+        </a>
+      ))
+    }
   </div>
 </div>
 

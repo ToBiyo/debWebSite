@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 import MenuLink from "./MenuLink.astro";
 import MenuAccordion from "./MenuAccordion.astro";
+import { MenuLinksData } from "../../data/linksData";
+
 const path = Astro.url.pathname;
 ---
 
@@ -17,9 +19,12 @@ const path = Astro.url.pathname;
       <Icon name={"mdi:close"} /></inuput
     >
   </div>
-  <MenuLink href="/" label="Home" currentPath={path} />
-  <MenuLink href="/chi-sono" label="Chi sono" currentPath={path} />
-  <MenuAccordion pathName={path} />
-
-  <MenuLink href="/contatti" label="Contatti" currentPath={path} />
+  {
+    MenuLinksData.map((link) => {
+      if (link.name === "Servizi") {
+        return <MenuAccordion pathName={path} />;
+      }
+      return <MenuLink href={link.path} label={link.name} pathName={path} />;
+    })
+  }
 </div>

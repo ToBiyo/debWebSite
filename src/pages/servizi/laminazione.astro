@@ -1,48 +1,19 @@
 ---
 import ServiceSection from "../../components/sections/services/ServiceSection.astro";
 import Layout from "../../layouts/Layout.astro";
-import benefits from "../../assets/img/benefits.jpg";
-import MainHeading from "../../components/typography/MainHeading.astro";
-
-const treatments = [
-  {
-    name: "Pulizia viso profonda",
-    description:
-      "Un trattamento completo per detergere e purificare la pelle in profondità.",
-    sessions: "3–5 sedute",
-    results: [
-      "Pelle visibilmente più luminosa e fresca.",
-      "Pelle visibilmente più luminosa e fresca.",
-      "Pelle visibilmente più luminosa e fresca.",
-    ],
-    images: [benefits, benefits],
-  },
-  {
-    name: "Trattamento anti-age",
-    description:
-      "Stimola la rigenerazione cellulare per una pelle più tonica e compatta.",
-    sessions: "4–6 sedute",
-    results: [
-      "Riduzione delle linee sottili e maggiore elasticità.",
-      "Riduzione delle linee sottili e maggiore elasticità.",
-      "Riduzione delle linee sottili e maggiore elasticità.",
-    ],
-    images: [benefits, benefits],
-  },
-];
+import ColoredBanner from "../../components/ui/ColoredBanner.astro";
+import ServiceBannerContent from "../../components/ui/ServiceBannerContent.astro";
+import laminazioneTreatments from "../../data/Services/laminazioneTreatments";
 ---
 
 <Layout>
-  <section class="py-10 lg:py-20 bg-[#C4E9D7] flex justify-center items-center">
-    <div class="max-w-[1000px] flex flex-col gap-5 px-2 lg:px-0">
-      <MainHeading border={true}>Laminazione</MainHeading>
-      <h3 class="text-center text-gray-800 text-lg lg:text-2xl font-main">
-        Laminazione su misura per valorizzare le tue ciglia, donando curvatura,
-        volume e uno sguardo intenso
-      </h3>
-    </div>
-  </section>
+  <ColoredBanner bgColor="bg-[#C4E9D7]">
+    <ServiceBannerContent
+      heading="Laminazione"
+      description="Laminazione su misura per valorizzare le tue ciglia, donando curvatura, volume e uno sguardo intenso"
+    />
+  </ColoredBanner>
   <section class="max-w-[1200px] mx-auto py-10">
-    {treatments.map((t) => <ServiceSection data={t} />)}
+    {laminazioneTreatments.map((t) => <ServiceSection data={t} />)}
   </section>
 </Layout>

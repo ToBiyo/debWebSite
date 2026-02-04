@@ -11,11 +11,13 @@ import ContactsSection from "../components/sections/ContactsSection.astro";
 
 <Layout>
   <Hero />
-  <BenefitsSection />
-  <ServicesCardSection />
-  <ReviewSection />
-  <ContactsSection
-    title="Contatti e Orari"
-    description="In deb Studio Estetico, la tua esperienza è la nostra priorità. Per garantirti la massima attenzione e disponibilità, ti invitiamo a prenotare il tuo appuntamento in anticipo. Per una comunicazione più rapida e per fissare subito la tua consulenza o il tuo trattamento, WhatsApp è il nostro canale preferito. Rispondiamo prontamente per gestire al meglio le tue richieste."
-  />
+  <main class="flex flex-col gap-20 w-screen m-0 p-0">
+    <BenefitsSection />
+    <ServicesCardSection />
+    <ReviewSection />
+    <ContactsSection
+      title="Contatti e Orari"
+      description="In deb Studio Estetico, la tua esperienza è la nostra priorità. Per garantirti la massima attenzione e disponibilità, ti invitiamo a prenotare il tuo appuntamento in anticipo. Per una comunicazione più rapida e per fissare subito la tua consulenza o il tuo trattamento, WhatsApp è il nostro canale preferito. Rispondiamo prontamente per gestire al meglio le tue richieste."
+    />
+  </main>
 </Layout>

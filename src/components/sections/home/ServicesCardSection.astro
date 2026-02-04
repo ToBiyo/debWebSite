@@ -1,16 +1,11 @@
 ---
-const servizi = [
-  "Pmu",
-  "Trattamenti Viso",
-  "Laminazione",
-  "Trattamenti Corpo ",
-  "Macchinari",
-];
 import MainHeading from "../../typography/MainHeading.astro";
+import serviceData from "../../../data/home/serviceData.js";
+import ServiceBoxLink from "../../ui/ServiceBoxLink.astro";
 ---
 
 <section
-  class="max-w-full bg-cream/30 mx-auto py-30 flex flex-col gap-18 px-8 border-gray-200 items-center"
+  class="w-full bg-cream/30 mx-auto py-30 flex flex-col gap-18 px-8 border-gray-200 items-center"
 >
   <div class="max-w-[1000px] flex flex-col gap-8">
     <MainHeading tag="h2">I Servizi</MainHeading>
@@ -24,46 +19,16 @@ import MainHeading from "../../typography/MainHeading.astro";
     </p>
   </div>
   <div
-    class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 max-w-[1400px]"
+    class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 max-w-[1400px]"
   >
-    <a href="/servizi/pmu">
-      <article
-        class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] bg-[#F5E8D0] flex items-center justify-center p-2 xl:shadow-lg"
-      >
-        <h3 class="text-main text-xl lg:text-3xl text-center">PMU</h3>
-      </article>
-    </a>
-    <a href="/servizi/trattamenti_viso">
-      <article
-        class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] bg-[#E4BFA1] flex items-center justify-center p-2 xl:shadow-xl xl:mt-4"
-      >
-        <h3 class="text-main text-xl lg:text-3xl text-center">
-          TRATTAMENTI VISO
-        </h3>
-      </article>
-    </a>
-    <a href="/servizi/trattamenti_corpo">
-      <article
-        class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] bg-[#EAC1B5] flex items-center justify-center p-2 xl:shadow-2xl xl:mt-8"
-      >
-        <h3 class="text-main text-xl lg:text-3xl text-center">
-          TRATTAMENTI CORPO
-        </h3>
-      </article>
-    </a>
-    <a href="/servizi/laminazione">
-      <article
-        class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] bg-[#C4E9D7] flex items-center justify-center p-2 xl:shadow-xl xl:mt-4"
-      >
-        <h3 class="text-main text-xl lg:text-3xl text-center">LAMINAZIONE</h3>
-      </article>
-    </a>
-    <a href="/servizi/macchinari">
-      <article
-        class="w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] bg-[#A4F4CF] flex items-center justify-center p-2 xl:shadow-"
-      >
-        <h3 class="text-main text-xl lg:text-3xl text-center">MACCHINARI</h3>
-      </article>
-    </a>
+    {
+      serviceData.map((service) => (
+        <ServiceBoxLink
+          title={service.title}
+          linkUrl={service.linkUrl}
+          bg={service.bg}
+        />
+      ))
+    }
   </div>
 </section>

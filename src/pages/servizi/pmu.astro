@@ -1,53 +1,26 @@
 ---
-import ServiceSection from "../../components/sections/services/ServiceSection.astro";
 import Layout from "../../layouts/Layout.astro";
-import benefits from "../../assets/img/benefits.jpg";
-import MainHeading from "../../components/typography/MainHeading.astro";
-
-const treatments = [
-  {
-    name: "Pulizia viso profonda",
-    description:
-      "Un trattamento completo per detergere e purificare la pelle in profondità.",
-    sessions: "3–5 sedute",
-    results: [
-      "Pelle visibilmente più luminosa e fresca.",
-      "Pelle visibilmente più luminosa e fresca.",
-      "Pelle visibilmente più luminosa e fresca.",
-    ],
-    images: [benefits, benefits, benefits],
-  },
-  {
-    name: "Trattamento anti-age",
-    description:
-      "Stimola la rigenerazione cellulare per una pelle più tonica e compatta.",
-    sessions: "4–6 sedute",
-    results: [
-      "Riduzione delle linee sottili e maggiore elasticità.",
-      "Riduzione delle linee sottili e maggiore elasticità.",
-      "Riduzione delle linee sottili e maggiore elasticità.",
-    ],
-    images: [benefits, benefits, benefits],
-  },
-];
+import ServiceSection from "../../components/sections/services/ServiceSection.astro";
+import ColoredBanner from "../../components/ui/ColoredBanner.astro";
+import ServiceBannerContent from "../../components/ui/ServiceBannerContent.astro";
+import pmuTreatments from "../../data/Services/PmuTreatments";
 ---
 
 <Layout>
-  <section class="py-14 lg:py-20 bg-[#F5E8D0]">
-    <div class="max-w-[1000px] flex flex-col gap-10 mx-auto px-2 lg:px-0">
-      <MainHeading border={true}>PMU</MainHeading>
+  <main class="flex flex-col gap-0 lg:gap-20">
+    <ColoredBanner bgColor="bg-[#F5E8D0]">
+      <ServiceBannerContent
+        heading="PMU"
+        description=" Il trucco permanente che valorizza i tuoi lineamenti con armonia, precisione e naturalezza."
+      />
+    </ColoredBanner>
 
-      <h3 class="text-center text-gray-800 text-lg lg:text-2xl font-main">
-        Il trucco permanente che valorizza i tuoi lineamenti con armonia,
-        precisione e naturalezza.
-      </h3>
-    </div>
-  </section>
-  <section class="max-w-[1200px] mx-auto py-14 lg:py-20">
-    {
-      treatments.map((t) => {
-        return <ServiceSection data={t} />;
-      })
-    }
-  </section>
+    <section class="max-w-[1200px] mx-auto">
+      {
+        pmuTreatments.map((t) => {
+          return <ServiceSection data={t} />;
+        })
+      }
+    </section>
+  </main>
 </Layout>

@@ -1,4 +1,4 @@
-const links = [
+const MenuLinksData = [
   {
     path: "/",
     name: "Home",
@@ -7,6 +7,17 @@ const links = [
     path: "/chi-sono",
     name: "Chi Sono",
   },
+  {
+    path: "#",
+    name: "Servizi",
+  },
+  {
+    path: "/contatti",
+    name: "Contatti",
+  },
+];
+
+const AccordionLinksData = [
   {
     path: "/servizi/pmu",
     name: "Pmu",
@@ -27,10 +38,5 @@ const links = [
     path: "/servizi/macchinari",
     name: "Macchinari",
   },
-  {
-    path: "/contatti",
-    name: "Contatti",
-  },
 ];
-
-export default links;
+export { MenuLinksData, AccordionLinksData };

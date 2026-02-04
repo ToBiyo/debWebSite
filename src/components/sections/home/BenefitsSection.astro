@@ -5,56 +5,43 @@ import MainHeading from "../../typography/MainHeading.astro";
 ---
 
 <section
-  class="max-w-[1400px] mx-auto py-10 lg:py-20 flex flex-col gap-14 px-6"
+  class="max-w-[1400px] mx-auto py-10 lg:py-20 flex flex-col justify-center items-center gap-14 px-6 mt-20"
 >
-  <div class="max-w-[1400px] mx-auto flex flex-col gap-14">
-    <MainHeading tag="h2">Perchè scegliere i miei trattamenti</MainHeading>
+  <div class="max-w-3xl mx-auto flex flex-col gap-14">
+    <MainHeading tag="h2" center={true}
+      >Perchè scegliere i miei trattamenti</MainHeading
+    >
+    <EmblaCarousel
+      images={[benefits, benefits, benefits]}
+      id="benefits_carousel"
+    />
     <ul class="px-8 list-disc flex flex-col gap-5">
       <li class="text-base lg:text-lg text-center">
-        <strong>Massima Professionalità Certificata:</strong> Affidati all'esperienza
-        scrupolosa e alla competenza della titolare e del team, che i nostri clienti
-        elogiano per la loro capacità di ascolto e precisione.
+        <strong>Massima Professionalità:</strong> Il team, esperto e attento, garantisce
+        precisione e ascolto.
       </li>
       <li class="text-base lg:text-lg text-center">
-        <strong>Trattamenti All'Avanguardia:</strong> Utilizziamo tecnologie di ultima
-        generazione come la Radiofrequenza Tripolare + DMA e la Pressoterapia per
-        garantire risultati visibili, indolori e non invasivi.
+        <strong>Trattamenti Avanzati:</strong> Tecnologie moderne come Radiofrequenza
+        Tripolare e Pressoterapia per risultati visibili e non invasivi.
       </li>
       <li class="text-base lg:text-lg text-center">
-        <strong>Percorsi Estetici Personalizzati:</strong> Non crediamo nelle soluzioni
-        universali. Ogni ciclo di trattamenti viene studiato e modellato sulle tue
-        esigenze specifiche per massimizzare l'efficacia e la soddisfazione.
+        <strong>Percorsi Personalizzati:</strong> Ogni ciclo è studiato su misura
+        per massimizzare efficacia e soddisfazione.
       </li>
       <li class="text-base lg:text-lg text-center">
-        <strong>Risultati Reali e Duraturi:</strong> Il nostro focus è ottenere un
-        cambiamento estetico significativo e stabile, come testimoniano i risultati
-        eccezionali raggiunti dalle nostre clienti.
+        <strong>Risultati Duraturi:</strong> Cambiamenti estetici significativi, confermati
+        dai risultati delle clienti.
       </li>
       <li class="text-base lg:text-lg text-center">
-        <strong>Un Ambiente Accogliente e Rilassante:</strong> Vieni accolta in uno
-        spazio pensato per farti sentire subito a tuo agio, dove gentilezza e premura
-        sono parte integrante del trattamento.
+        <strong>Ambiente Accogliente:</strong> Uno spazio pensato per farti sentire
+        subito a tuo agio.
       </li>
     </ul>
   </div>
-  <EmblaCarousel
-    images={[benefits, benefits, benefits]}
-    id="benefits_carousel"
-  />
-  <!-- <ImageCarousel images={[benefits, benefits]} /> -->
-  <!--  <div class="w-full grid grid-rows-2 gap-2 lg:flex lg:justify-center">
-    <div class="relative text-lg lg:text-xl">
-      <img src={benefits.src} alt="" class="w-full" />
-      <div class="bottom-0 bg-gray-800 text-white w-full p-2">Prima</div>
-    </div>
-    <div class="relative text-lg lg:text-xl">
-      <img src={benefits.src} alt="" class="w-full" />
-      <div class="bottom-0 bg-gray-800 text-white w-full p-2">Dopo</div>
-    </div>
-  </div> -->
-  <!--   <a
+
+  <a
     class="flex-none px-2 py-4 text-white bg-gray-800 max-w-[300px] mx-auto text-base lg:text-lg cursor-pointer"
   >
     CONTATTAMI PER SAPERNE DI PIU'
-  </a> -->
+  </a>
 </section>

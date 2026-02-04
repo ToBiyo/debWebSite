@@ -8,7 +8,7 @@ const { tag: Tag = "h1", center = true, border = false } = Astro.props;
 ---
 
 <Tag
-  class={`inline-block  ${Tag === "h1" ? "text-3xl lg:text-5xl xl:text-7xl" : "text-3xl lg:text-5xl xl:text-6xl"}  font-main ${center ? "text-center self-center" : "text-center lg:text-left "}  ${border ? "border-y-2 border-gray-800 py-2" : ""}`}
+  class={`inline-block  ${Tag === "h1" ? "text-4xl sm:text-5xl xl:text-7xl" : "text-3xl sm:text-5xl xl:text-6xl"}  font-main ${center ? "text-center self-center" : "text-center lg:text-left "}  ${border ? "border-y-2 border-gray-800 py-2" : ""}`}
 >
   <slot />
 </Tag>

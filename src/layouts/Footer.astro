@@ -1,44 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
-const instagramLink = import.meta.env.PUBLIC_INSTAGRAM;
-const facebookLink = import.meta.env.PUBLIC_FACEBOOK;
-const phoneNumber = import.meta.env.PUBLIC_PHONE;
-const address = import.meta.env.PUBLIC_ADDRESS;
-
-const links = [
-  {
-    path: "/",
-    name: "Home",
-  },
-  {
-    path: "/chi_sono",
-    name: "Chi Sono",
-  },
-  {
-    path: "/servizi/pmu",
-    name: "Pmu",
-  },
-  {
-    path: "/servizi/trattamenti_viso",
-    name: "Trattamenti Viso",
-  },
-  {
-    path: "/servizi/trattamenti_corpo",
-    name: "Trattamenti Corpo",
-  },
-  {
-    path: "/servizi/laminazione",
-    name: "Laminazione",
-  },
-  {
-    path: "/servizi/macchinari",
-    name: "Macchinari",
-  },
-  {
-    path: "/contatti",
-    name: "Contatti",
-  },
-];
+import FooterList from "../components/ui/FooterList.astro";
+import { MenuLinksData, AccordionLinksData } from "../data/linksData";
+import contacts from "../data/footer/contactData";
+import socialsData from "../data/footer/socialData";
 ---
 
 <footer
@@ -53,15 +18,29 @@ const links = [
       >
         Link Utili
       </h3>
-      <ul class="text-base lg:text-lg text-white flex flex-col items-center">
+      <FooterList>
         {
-          links.map((link) => (
-            <li class="flex items-center gap-3 p-2">
-              <a href={link.path}>{link.name}</a>
-            </li>
-          ))
+          MenuLinksData.map((link) => {
+            if(link.name !== "Servizi"){
+              return (
+                <li class="p-2">
+                  <a href={link.path} class="text-white hover:underline">
+                    {link.name}
+                  </a>
+                </li>
+              )
+          }}     
+          )
         }
-      </ul>
+
+        {AccordionLinksData.map((link) => (
+          <li class="p-2">
+            <a href={link.path} class="text-white hover:underline">
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </FooterList>
     </div>
     <div
       class="w-auto flex md:w-full flex-col items-center py-8 mx-4 gap-6 md:pl-8 mt-8 md:mt-0 border-y md:border-y-0 lg:border-x border-gray-100 border-dotted md-w-auto"
@@ -72,25 +51,16 @@ const links = [
         <!-- Icona telefono -->
         Contatti
       </h3>
-      <ul
-        class="space-y-4 text-base lg:text-lg text-white flex flex-col justify-center items-center"
-      >
-        <li class="flex gap-3 p-2">
+      <FooterList>
+
+        {contacts.map(({ value, icon, color }) => (
+          <li class="flex gap-3 p-2">
           <!-- Icona telefono -->
-          <Icon name="mdi:phone" class={"text-pink-500 text-2xl"} />
-          <span>{phoneNumber}</span>
+          <Icon name={icon} class={color} />
+          <span>{value}</span>
         </li>
-        <li class="flex gap-3 p-2">
-          <!-- Icona WhatsApp -->
-          <Icon name="mdi:whatsapp" class={"text-green-500 text-2xl"} />
-          <span>{phoneNumber} (WhatsApp)</span>
-        </li>
-        <li class="flex gap-3 p-2">
-          <!-- Icona posizione -->
-          <Icon name="mdi:map-marker" class={"text-red-500 text-2xl"} />
-          <span>Via Pietro Delitala, 11, Cagliari</span>
-        </li>
-      </ul>
+        ))}      
+      </FooterList>
     </div>
     <div class="flex flex-col items-center gap-6 p-4 md:pl-8 mt-8 md:mt-0">
       <h3
@@ -99,20 +69,16 @@ const links = [
         <!-- Icona telefono -->
         Social
       </h3>
-      <ul class="space-y-4 text-base lg:text-lg text-white">
-        <li class="flex items-center gap-3 p-2">
-          <!-- Icona telefono -->
-          <a href={instagramLink}>
-            <Icon name="mdi:instagram" class={"text-pink-500 text-5xl"} />
-          </a>
-        </li>
-        <li class="flex items-center gap-3 p-2">
-          <a href={facebookLink}>
-            <Icon name="mdi:facebook" class={"text-blue-500 text-5xl"} />
-          </a>
-          <!-- Icona WhatsApp -->
-        </li>
-      </ul>
+      <FooterList>
+        {socialsData.map(({ url, icon, color }) => (
+          <li class="flex items-center gap-3 p-2">
+            <!-- Icona telefono -->
+            <a href={url}>
+              <Icon name={icon} class={color} />
+            </a>
+          </li>
+        ))}
+      </FooterList>
     </div>
   </div>
   <div class="max-w-[1600px] mt-20 border-dotted">
