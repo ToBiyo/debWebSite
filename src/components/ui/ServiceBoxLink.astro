@@ -1,0 +1,11 @@
+---
+const { title, linkUrl, bg } = Astro.props;
+---
+
+<a href={linkUrl}>
+  <article
+    class={`w-[200px] h-[200px] lg:w-[250px] lg:h-[250px] ${bg} flex items-center justify-center p-2 xl:shadow-lg`}
+  >
+    <h3 class="text-main text-xl lg:text-3xl text-center">{title}</h3>
+  </article>
+</a>
