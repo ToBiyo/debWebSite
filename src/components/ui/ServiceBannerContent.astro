@@ -1,0 +1,16 @@
+---
+import MainHeading from "../../components/typography/MainHeading.astro";
+const { heading, description } = Astro.props;
+
+interface Props {
+  heading: string;
+  description: string;
+}
+---
+
+<div class="max-w-[1000px] flex flex-col gap-10 mx-auto px-2 lg:px-0">
+  <MainHeading border={true}>{heading}</MainHeading>
+  <h3 class="text-center text-gray-800 text-lg lg:text-2xl font-main">
+    {description}
+  </h3>
+</div>
