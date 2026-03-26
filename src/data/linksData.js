@@ -12,6 +12,10 @@ const MenuLinksData = [
     name: "Servizi",
   },
   {
+    path: "/macchinari",
+    name: "Macchinari",
+  },
+  {
     path: "/contatti",
     name: "Contatti",
   },
@@ -33,10 +37,6 @@ const AccordionLinksData = [
   {
     path: "/servizi/laminazione",
     name: "Laminazione",
-  },
-  {
-    path: "/servizi/macchinari",
-    name: "Macchinari",
   },
 ];
 export { MenuLinksData, AccordionLinksData };

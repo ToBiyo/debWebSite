@@ -21,7 +21,7 @@ const servizi = [
   },
   {
     title: "MACCHINARI",
-    linkUrl: "/servizi/macchinari",
+    linkUrl: "/macchinari",
     bg: "bg-[#A4F4CF]",
   },
 ];

@@ -17,19 +17,21 @@ const { review, user, rating } = Astro.props;
   </div>
 
   {/* Review Text */}
-  <p
-    class="text-black font-quicksand text-base lg:text:lg leading-relaxed mb-6"
-  >
-    {review}
-  </p>
+  <div>
+    <p
+      class="text-black font-quicksand text-base lg:text-md leading-relaxed mb-6"
+    >
+      {review}
+    </p>
 
-  {/* Bottom Info */}
-  <div class="border-t border-gray-300 pt-4">
-    <div class="flex items-center justify-center">
-      <div>
-        <h4 class="font-main font-bold text-black text-xl lg:text-2xl">
-          {user}
-        </h4>
+    {/* Bottom Info */}
+    <div class="border-t border-gray-300 pt-4">
+      <div class="flex items-center justify-center">
+        <div>
+          <h4 class="font-main font-bold text-black text-xl lg:text-2xl">
+            {user}
+          </h4>
+        </div>
       </div>
     </div>
   </div>

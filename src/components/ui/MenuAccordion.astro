@@ -9,17 +9,11 @@ const isActive = pathString.includes("/servizi/") ? "lg:border-white" : "";
 <div class="flex flex-col relative" id="hover_trigger">
   <div class="flex w-full items-center lg:border-none">
     <a
-      class=`flex  items-center gap-2 w-full text-base font-semibold border-b border-gray-300   lg:p-3  lg:w-auto lg:border-b-3 lg:border-gray-800 lg:text-white lg:hover:border-white ${isActive} transition-all duration-200 cursor-pointer lg:transition-none`
+      class=`flex  items-center justify-between gap-2 w-full text-base font-semibold border-b border-gray-300   lg:p-3  lg:w-auto lg:border-b-3 lg:border-gray-800 lg:text-white lg:hover:border-white ${isActive} transition-all duration-200 cursor-pointer lg:transition-none`
+      id="servizi_link"
     >
-      Servizi <Icon
-        name={"mdi:triangle-down"}
-        class="text-[10px] mt-1 hidden lg:block"
-      />
+      Servizi <Icon name={"mdi:triangle-down"} class="text-[10px] mt-1" />
     </a>
-    <!-- <MenuLink href="" label="Servizi" pathName={pathName} /> -->
-    <button class="text-md font-semibold lg:hidden" id="accordion_button"
-      >+</button
-    >
   </div>
   <div
     class="flex flex-col ml-2 max-h-0 overflow-hidden transition-all duration-300 lg:absolute lg:top-14 lg:-left-5 lg:max-h-0 lg:w-fit lg:bg-gray-800"
@@ -39,19 +33,17 @@ const isActive = pathString.includes("/servizi/") ? "lg:border-white" : "";
 </div>
 
 <script>
-  const accordionTrigger = document.getElementById("accordion_button");
-  const accordion = document.getElementById("accordion");
+  const serviziLink = document.getElementById("servizi_link");
   const hoverTrigger = document.getElementById("hover_trigger");
+  const accordion = document.getElementById("accordion");
 
-  accordionTrigger?.addEventListener("click", () => {
+  serviziLink?.addEventListener("click", () => {
     if (accordion?.classList.contains("max-h-0")) {
       accordion.classList.remove("max-h-0");
       accordion.classList.add("max-h-96");
-      accordionTrigger.innerText = "-";
     } else {
       accordion?.classList.remove("max-h-96");
       accordion?.classList.add("max-h-0");
-      accordionTrigger.innerText = "+";
     }
   });
 
