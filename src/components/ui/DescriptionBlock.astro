@@ -2,16 +2,21 @@
 interface ComponentProps {
   title: string;
   textBlock: string;
+  subtitle?: string;
   buttonMessage: string;
 }
 import MainHeading from "../typography/MainHeading.astro";
 
-const { title, textBlock, buttonMessage } = Astro.props as ComponentProps;
+const { title, textBlock, subtitle, buttonMessage } = Astro.props as ComponentProps;
 ---
 
 <div class="px-4 flex flex-col gap-8 xl:px-0">
   <MainHeading tag="h2" center={false}>{title}</MainHeading>
-
+  {subtitle && (
+    <h3 class="text-lg lg:text-2xl text-gray-700 leading-relaxed text-center lg:text-left font-bold">
+      {subtitle}
+    </h3>
+  )}
   <p class="text-center text-base lg:text-md xl:text-lg lg:text-left max-w-3xl">
     {textBlock}
   </p>

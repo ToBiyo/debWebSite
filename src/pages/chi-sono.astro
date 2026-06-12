@@ -9,17 +9,16 @@ import centro1 from "../assets/img/centro2.webp";
 import MainHeading from "../components/typography/MainHeading.astro";
 import ColoredBanner from "../components/ui/ColoredBanner.astro";
 
-const text =
-  "La mia passione per l'estetica è nata dalla convinzione che la vera bellezza risieda nel benessere e nella cura di sé. In deb Studio Estetico, ho voluto creare un luogo che non fosse solo un centro, ma un vero e proprio spazio di fiducia e risultati. In questi anni, ho dedicato la mia attività a un approccio professionale e meticoloso ad ogni trattamento, come confermano le mie clienti. Non mi limito a eseguire procedure: mi impegno a comprendere le tue esigenze uniche e a disegnare un percorso personalizzato che ti porti al tuo obiettivo, con tecnologie all'avanguardia come Radiofrequenza e Pressoterapia.Ti aspetto per una consulenza, per iniziare insieme il tuo percorso di cambiamento e benessere. La tua soddisfazione è la mia priorità.";
+const chiSono_description = "Da sempre considero la formazione un pilastro fondamentale della mia professione. La passione per il benessere e la bellezza mi ha portata a intraprendere un percorso di crescita continua attraverso numerosi corsi di specializzazione, molti dei quali svolti all’estero. Queste esperienze internazionali mi hanno permesso di approfondire tecniche innovative, conoscere nuovi approcci professionali e confrontarmi con realtà diverse, arricchendo il mio bagaglio di competenze e la mia visione del settore estetico."
 ---
 
 <Layout>
   <main class="flex flex-col gap-20">
-    <ColoredBanner bgColor="bg-cream">
-      <MainHeading tag="h1" border={true}>
+    {/*<ColoredBanner bgColor="bg-cream">
+       <MainHeading tag="h1" border={true}>
         Quando l’estetica è cura
       </MainHeading>
-    </ColoredBanner>
+    </ColoredBanner> */}
 
     <TwoColumn>
       <img
@@ -28,8 +27,9 @@ const text =
         class="w-[300px] sm:w-[400px] md:w-[500px] md:shadow-xl lg:shadow-2xl"
       />
       <DescriptionBlock
-        title={"Chi è Debora"}
-        textBlock={text}
+        title={"Chi sono"}
+        textBlock={chiSono_description}
+        subtitle={"Sono Debora, estetista da oltre vent’anni. "}
         buttonMessage="Contattami"
       />
     </TwoColumn>
@@ -46,37 +46,21 @@ const text =
       gap-8
       items-center max-w-[800px]"
         >
-          <MainHeading tag="h2">Etica, Cura, Risultati</MainHeading>
+          <MainHeading tag="h2">Esperienza, Passione e Professionalità</MainHeading>
 
           <h3
             class="text-lg lg:text-2xl text-gray-700 leading-relaxed text-center font-bold"
           >
-            La nostra missione è offrirti un'estetica che sia etica ed efficace.
-            Non crediamo nelle soluzioni standard.
+           La mia missione è offrire trattamenti personalizzati, efficaci e all’avanguardia.
           </h3>
-          <ul class="space-y-5">
-            <li
-              class="text-base lg:text-lg text-gray-700 leading-relaxed text-center"
-            >
-              <strong>Cura Personalizzata: </strong>Ogni percorso inizia con una
-              consulenza approfondita per comprendere le tue esigenze uniche e
-              disegnare un piano mirato solo su di te.
-            </li>
-            <li
-              class="text-base lg:text-lg text-gray-700 leading-relaxed text-center"
-            >
-              <strong>Tecnologia e Professionalità:</strong> Utilizziamo macchinari
-              avanzati e non invasivi (come Radiofrequenza e Pressoterapia) con la
-              meticolosità e la competenza che ci distinguono.
-            </li>
-            <li
-              class="text-base lg:text-lg text-gray-700 leading-relaxed text-center"
-            >
-              <strong>Risultati Reali:</strong> Il nostro obiettivo è la tua soddisfazione.
-              Lavoriamo per un benessere e un cambiamento visibile e duraturo, in
-              un ambiente dove ti senti accolta e a tuo agio.
-            </li>
-          </ul>
+          
+           <p class="text-base lg:text-lg text-gray-700 leading-relaxed text-center">
+             Nel mio lavoro unisco esperienza, aggiornamento costante e attenzione alla persona. 
+             Credo che ogni trattamento debba essere personalizzato e pensato per valorizzare l’unicità di ciascuno per questo
+             accolgo ogni cliente con professionalità, passione e dedizione, offrendo un ambiente in cui sentirsi a proprio agio e vivere un’autentica esperienza di benessere.
+             Benvenuti nel mio mondo, dove la cura della persona incontra la passione, la competenza e l’innovazione.
+           </p>
+           
         </div>
       </div>
     </section>
@@ -85,7 +69,7 @@ const text =
         <EmblaCarousel images={[centro, centro1]} id="beuty_center_spaces" />
         <DescriptionBlock
           title="Un Ambiente Accogliente"
-          textBlock={"Ho curato ogni dettaglio di deb Studio Estetico per garantirti un'esperienza che sia professionale quanto rilassante. L'oasi di tranquillità che ho progettato è esclusivamente per il tuo benessere. Sin dall'ingresso, sarai accolta in un ambiente sereno e riservato, dove potrai staccare la spina e dedicarti completamente a te stessa. È in questo spazio di fiducia e comfort che lavoro con la massima meticolosità per farti ottenere i risultati che desideri."}
+          textBlock={"Il mio studio non è solo uno spazio dedicato ai trattamenti, ma un luogo che racconta la mia idea di benessere. Professionalità, passione e attenzione alla persona si riflettono in ambienti accoglienti e curati, pensati per offrirti un’esperienza autentica e personalizzata, fatta di relax, comfort e cura di sé."}
           buttonMessage="Vieni A Trovarci"
         />
       </TwoColumn>
